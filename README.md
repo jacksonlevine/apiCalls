@@ -1,11 +1,12 @@
-# Super-Galactic Solar Age Calculator
-By Jackson Levine
+# Giphy Search Engine
+By Jackson Levine & Brishna Bakshev
 
-### A demonstration of Test-Driven Development and ECMAScript 6 features such as classes.
-An experiment in ASCII-art based web design. 
+### Description
+Using GIPHY API, this application allows users to search for gif stickers. In the search bar, enter anything you would like and receive an output of the designated gif sticker. 
+
 ## Technologies Used:
 
-* ECMAScript 6
+* JavaScript
 * HTML
 * Live Development Server
 * CSS
@@ -23,13 +24,9 @@ An experiment in ASCII-art based web design.
 5. Navigate to the "dist" folder
 6. Launch index.html in any browser! 
 
-## Online or Mobile Setup:
-1. For online desktop users, visit [the GitHub Pages link.](https://jacksonlevine.github.io/solarAgeCalculator)
-* Unfortunately does not support mobile device interaction at this time.
 
 ## Known Bugs:
-* Does not support mobile or touch-screen devices properly.
-* Content may be obscured. If your device allows, zooming out on the webpage should resolve this issue.
+* N/A
 
 # Credits:
 
@@ -39,7 +36,7 @@ _Please_ report any bugs to jack@netbug.us!
 
 # License:
 
-Copyright © Jackson Levine 2023
+Copyright © Jackson Levine and Brishna Bakshev 2023
 
 This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
 
