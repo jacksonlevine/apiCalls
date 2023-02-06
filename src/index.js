@@ -9,7 +9,7 @@ function searchGiphy(search) {
   request.addEventListener("loadend", function() {
     const response = JSON.parse(this.responseText);
     if (this.status === 200) {
-      printElements(response, search);
+      printElements(response);
     }
   });
 
@@ -17,17 +17,109 @@ function searchGiphy(search) {
   request.send();
 }
 
+function populateTrendingSection() {
+  let request = new XMLHttpRequest();
+  const url = `https://api.giphy.com/v1/stickers/trending?api_key=${process.env.API_KEY}&limit=60`;
+
+  request.addEventListener("loadend", function() {
+    const response = JSON.parse(this.responseText);
+    if (this.status === 200) {
+      printTrendingElements(response);
+    }
+  });
+
+  request.open("GET", url, true);
+  request.send();
+}
+
+function populateRandomSection() {
+  let request = new XMLHttpRequest();
+  const url = `https://api.giphy.com/v1/stickers/trending?offset=25&limit=60&api_key=${process.env.API_KEY}`;
+
+  request.addEventListener("loadend", function() {
+    const response = JSON.parse(this.responseText);
+    if (this.status === 200) {
+      printRandomElements(response);
+    }
+  });
+
+  request.open("GET", url, true);
+  request.send();
+}
+
+function populateAnimalSection() {
+  let request = new XMLHttpRequest();
+  const url = `https://api.giphy.com/v1/stickers/search?q=animals&limit=60&api_key=${process.env.API_KEY}`;
+
+  request.addEventListener("loadend", function() {
+    const response = JSON.parse(this.responseText);
+    if (this.status === 200) {
+      printAnimalElements(response);
+    }
+  });
+
+  request.open("GET", url, true);
+  request.send();
+}
+
+
+
 // UI Logic
 
 function printElements(apiResponse) {
   document.querySelector('#showResponse').innerText = ``; 
   let ul = document.createElement("ul");
   apiResponse.data.forEach(function(element) {
+    let a = document.createElement("a");
+    a.setAttribute("href", element["images"]["fixed_height_small"]["url"])
     let gif = document.createElement("img");
-    gif.setAttribute("src", element["images"]["downsized"]["url"]);
-    ul.append(gif);
+    gif.setAttribute("src", element["images"]["fixed_height_small"]["url"]);
+    a.append(gif);
+    ul.append(a);
   });
   document.querySelector('#showResponse').append(ul);
+}
+
+function printTrendingElements(apiResponse) {
+  document.querySelector('.column #trendingSpot').innerText = ``; 
+  let ul = document.createElement("ul");
+  apiResponse.data.forEach(function(element) {
+    let a = document.createElement("a");
+    a.setAttribute("href", element["images"]["fixed_height_small"]["url"])
+    let gif = document.createElement("img");
+    gif.setAttribute("src", element["images"]["fixed_height_small"]["url"]);
+    a.append(gif);
+    ul.append(a);
+  });
+  document.querySelector('.column #trendingSpot').append(ul);
+}
+
+function printRandomElements(apiResponse) {
+  document.querySelector('.column #randomSpot').innerText = ``; 
+  let ul = document.createElement("ul");
+  apiResponse.data.forEach(function(element) {
+    let a = document.createElement("a");
+    a.setAttribute("href", element["images"]["fixed_height_small"]["url"])
+    let gif = document.createElement("img");
+    gif.setAttribute("src", element["images"]["fixed_height_small"]["url"]);
+    a.append(gif);
+    ul.append(a);
+  });
+
+  document.querySelector('.column #randomSpot').append(ul);
+}
+function printAnimalElements(apiResponse) {
+  document.querySelector('.column #animalSpot').innerText = ``; 
+  let ul = document.createElement("ul");
+  apiResponse.data.forEach(function(element) {
+    let a = document.createElement("a");
+    a.setAttribute("href", element["images"]["fixed_height_small"]["url"])
+    let gif = document.createElement("img");
+    gif.setAttribute("src", element["images"]["fixed_height_small"]["url"]);
+    a.append(gif);
+    ul.append(a);
+  });
+  document.querySelector('.column #animalSpot').append(ul);
 }
 
 function handleFormSubmission(event) {
@@ -39,4 +131,7 @@ function handleFormSubmission(event) {
 
 window.addEventListener("load", function() {
   document.querySelector('form').addEventListener("submit", handleFormSubmission);
+  populateTrendingSection();
+  populateRandomSection();
+  populateAnimalSection();
 });

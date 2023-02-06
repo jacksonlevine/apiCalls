@@ -5,11 +5,24 @@ body {
   font-family: monospace;
 }
 
-#mainDisplay {
-  white-space: pre;
-  line-height:100%;
-  font-size:80%;
-  letter-spacing: 5px;
+img:hover {
+  transform: scale(2);
+}
+
+img {
+  transition: all 100ms;
+}
+
+.column img {
+  width:20%;
+  height:7%;
+}
+.column {
+  width: 30%;
+}
+.columnSet {
+  display:flex;
+  justify-content: space-evenly;
 }
 
 .red {

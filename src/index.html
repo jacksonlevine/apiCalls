@@ -6,11 +6,26 @@
   <div class="container">
     <h1>Search for a gif on Giphy!</h1>
     <form>
+      <input type="file" name="myImage" accept="image/gif" />
       <!-- <label for="search">GIF Search Engine</label> -->
       <input id="search" type="text" name="searchInput">
       <button type="submit" class="btn-success" id="user_input" placeholder="enter something">Search Gif</button>
     </form>
     <p id="showResponse"></p>
+    <div class="columnSet">
+      <div class="column">
+        <h2>Trending 📈</h2>
+        <p id="trendingSpot"></p> 
+      </div>
+      <div class="column">
+        <h2>Random 🌀</h2>
+        <p id="randomSpot"></p> 
+      </div>
+      <div class="column">
+        <h2>Animals 🐶</h2>
+        <p id="animalSpot"></p> 
+      </div>
+    </div>
   </div>
 </body>
 </html>
