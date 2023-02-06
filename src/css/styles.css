@@ -1,0 +1,36 @@
+body {
+  text-align:center;
+  color:white;
+  background-color: black;
+  font-family: monospace;
+}
+
+#mainDisplay {
+  white-space: pre;
+  line-height:100%;
+  font-size:80%;
+  letter-spacing: 5px;
+}
+
+.red {
+  color:red;
+  font-weight:bold;
+}
+.orange {
+  color:rgb(255, 136, 0);
+  font-weight:bold;
+}
+.yellow {
+  color:rgb(255, 217, 0);
+  font-weight:bold;
+}
+
+.blue {
+  color:blue;
+  font-weight:bold;
+}
+
+.green {
+  color:rgb(120, 201, 0);
+  font-weight:bold;
+}
