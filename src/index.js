@@ -22,9 +22,9 @@ function searchGiphy(search) {
 function printElements(apiResponse) {
   document.querySelector('#showResponse').innerText = ``; 
   let ul = document.createElement("ul");
-  apiResponse.data.forEach(function(thing) {
+  apiResponse.data.forEach(function(element) {
     let gif = document.createElement("img");
-    gif.setAttribute("src", thing["images"]["downsized"]["url"]);
+    gif.setAttribute("src", element["images"]["downsized"]["url"]);
     ul.append(gif);
   });
        //DISPLAY HERE
