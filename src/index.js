@@ -27,7 +27,6 @@ function printElements(apiResponse) {
     gif.setAttribute("src", element["images"]["downsized"]["url"]);
     ul.append(gif);
   });
-       //DISPLAY HERE
   document.querySelector('#showResponse').append(ul);
 }
 
