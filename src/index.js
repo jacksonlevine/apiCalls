@@ -4,7 +4,7 @@ import './css/styles.css';
 
 function searchGiphy(search) {
   let request = new XMLHttpRequest();
-  const url = `http://api.giphy.com/v1/stickers/search?q=${search}&api_key=${process.env.API_KEY}`;
+  const url = `https://api.giphy.com/v1/stickers/search?q=${search}&api_key=${process.env.API_KEY}`;
 
   request.addEventListener("loadend", function() {
     const response = JSON.parse(this.responseText);
