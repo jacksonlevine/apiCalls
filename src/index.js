@@ -1,27 +1,57 @@
 import './css/styles.css';
-
 // Business Logic
 
-function searchGiphy(search) {
-  let request = new XMLHttpRequest();
-  const url = `https://api.giphy.com/v1/stickers/search?q=${search}&api_key=${process.env.API_KEY}`;
-
-  request.addEventListener("loadend", function() {
-    const response = JSON.parse(this.responseText);
-    if (this.status === 200) {
-      printElements(response);
-    }
-  });
-
-  request.open("GET", url, true);
-  request.send();
+class SearchTerm {
+  constructor(inputTerm) {
+    this.term = inputTerm;
+  }
+  static getGreen() {
+    let colors = ["red", "blue", "green"]
+    return colors[2];
+  } 
+  static getCol() {
+    let colors = ["red", "blue", "green"]
+    return colors[Math.round(Math.random()*colors.length-1)];
+  } 
 }
 
-function populateTrendingSection() {
+function searchGiphy(search) 
+{
+  let promise = new Promise(function(resolve, reject) {
+    let request = new XMLHttpRequest();
+    const url = `https://api.giphy.com/v1/stickers/search?q=${search}&api_key=${process.env.API_KEY}`;
+
+    request.addEventListener("loadend", function() 
+    {
+      const response = JSON.parse(this.responseText);
+      if (this.status === 200) {
+        resolve(response);
+      } else {
+        reject(response);
+      }
+    });
+
+    request.open("GET", url, true);
+    request.send();
+  });
+
+  
+  promise.then((fish)=>{
+    printElements(fish);
+  }, function(response){
+    printElements(response);
+  })
+}
+
+
+function populateTrendingSection() 
+{
+
   let request = new XMLHttpRequest();
   const url = `https://api.giphy.com/v1/stickers/trending?api_key=${process.env.API_KEY}&limit=60`;
 
-  request.addEventListener("loadend", function() {
+  request.addEventListener("loadend", function() 
+  {
     const response = JSON.parse(this.responseText);
     if (this.status === 200) {
       printTrendingElements(response);
@@ -32,11 +62,13 @@ function populateTrendingSection() {
   request.send();
 }
 
-function populateRandomSection() {
+function populateRandomSection() 
+{
   let request = new XMLHttpRequest();
   const url = `https://api.giphy.com/v1/stickers/trending?offset=25&limit=60&api_key=${process.env.API_KEY}`;
 
-  request.addEventListener("loadend", function() {
+  request.addEventListener("loadend", function() 
+  {
     const response = JSON.parse(this.responseText);
     if (this.status === 200) {
       printRandomElements(response);
@@ -47,11 +79,13 @@ function populateRandomSection() {
   request.send();
 }
 
-function populateAnimalSection() {
+function populateAnimalSection() 
+{
   let request = new XMLHttpRequest();
   const url = `https://api.giphy.com/v1/stickers/search?q=animals&limit=60&api_key=${process.env.API_KEY}`;
 
-  request.addEventListener("loadend", function() {
+  request.addEventListener("loadend", function() 
+  {
     const response = JSON.parse(this.responseText);
     if (this.status === 200) {
       printAnimalElements(response);
