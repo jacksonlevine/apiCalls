@@ -18,11 +18,13 @@ Using GIPHY API, this application allows users to search for gif stickers. In th
 
 ## Desktop/Stand-alone Setup:
 1. Clone this repository
-2. Navigate to the top folder in your terminal.
-3. Run `npm install`
-4. Run `npm run build`
-5. Navigate to the "dist" folder
-6. Launch index.html in any browser! 
+2. Sign up for an account with GIPHY at [the GIPHY developer site](https://developers.giphy.com/)
+3. Get an API key by clicking "Create an App".
+4. Create a file '.env' and place it in the root folder of the downloaded repository.
+5. Include `API_KEY={your API key}` in the text of the .env file.
+6. Navigate to the root folder of this downloaded repo in your terminal.
+7. Run `npm install`.
+8. Run `npm run start` to open the pgae in your default browser.
 
 
 ## Known Bugs:
