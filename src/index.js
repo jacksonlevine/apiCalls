@@ -9,7 +9,7 @@ class SearchTerm {
     let colors = ["red", "blue", "green"]
     return colors[2];
   } 
-  static getCol() {
+  static getRandomColor() {
     let colors = ["red", "blue", "green"]
     return colors[Math.round(Math.random()*colors.length-1)];
   } 
