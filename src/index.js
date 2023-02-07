@@ -62,6 +62,21 @@ function populateAnimalSection() {
   request.send();
 }
 
+/*function uploadGif() {
+  let request = new XMLHttpRequest();
+  const url = `https://upload.giphy.com/v1/gifs?api_key=${process.env.API_KEY}`;
+
+  request.addEventListener("loadend", function() {
+    const response = JSON.parse(this.responseText);
+    if (this.status === 200) {
+      printAnimalElements(response);
+    }
+  });
+
+  request.open("GET", url, true);
+  request.send();
+}*/
+
 
 
 // UI Logic
@@ -71,7 +86,7 @@ function printElements(apiResponse) {
   let ul = document.createElement("ul");
   apiResponse.data.forEach(function(element) {
     let a = document.createElement("a");
-    a.setAttribute("href", element["images"]["fixed_height_small"]["url"])
+    a.setAttribute("href", element["images"]["fixed_height_small"]["url"]);
     let gif = document.createElement("img");
     gif.setAttribute("src", element["images"]["fixed_height_small"]["url"]);
     a.append(gif);
@@ -85,7 +100,7 @@ function printTrendingElements(apiResponse) {
   let ul = document.createElement("ul");
   apiResponse.data.forEach(function(element) {
     let a = document.createElement("a");
-    a.setAttribute("href", element["images"]["fixed_height_small"]["url"])
+    a.setAttribute("href", element["images"]["fixed_height_small"]["url"]);
     let gif = document.createElement("img");
     gif.setAttribute("src", element["images"]["fixed_height_small"]["url"]);
     a.append(gif);
@@ -99,7 +114,7 @@ function printRandomElements(apiResponse) {
   let ul = document.createElement("ul");
   apiResponse.data.forEach(function(element) {
     let a = document.createElement("a");
-    a.setAttribute("href", element["images"]["fixed_height_small"]["url"])
+    a.setAttribute("href", element["images"]["fixed_height_small"]["url"]);
     let gif = document.createElement("img");
     gif.setAttribute("src", element["images"]["fixed_height_small"]["url"]);
     a.append(gif);
@@ -113,7 +128,7 @@ function printAnimalElements(apiResponse) {
   let ul = document.createElement("ul");
   apiResponse.data.forEach(function(element) {
     let a = document.createElement("a");
-    a.setAttribute("href", element["images"]["fixed_height_small"]["url"])
+    a.setAttribute("href", element["images"]["fixed_height_small"]["url"]);
     let gif = document.createElement("img");
     gif.setAttribute("src", element["images"]["fixed_height_small"]["url"]);
     a.append(gif);
